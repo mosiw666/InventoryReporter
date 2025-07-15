@@ -1,10 +1,10 @@
 {
     "name": "Inventory Report",
-    "version": "1.0",
+    "version": "1.0.0",
     "depends": ["stock"],
     "author": "mosiw",
     "category": "Inventory",
-    "summary": "Report for Inventory Request",
+    "summary": "go the hell",
     "description": "inventory reporter / pdf",
     "data": [
         "report/report_inventory_request_template.xml",
