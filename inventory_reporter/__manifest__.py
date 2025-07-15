@@ -1,16 +1,16 @@
 {
     "name": "Inventory Report",
-
-    "version": "2.0",
-
+    "version": "1.0",
     "depends": ["stock"],
-    "author": "Mosiw, Erfan",
+    "author": "mosiw",
     "category": "Inventory",
-    "summary": "go to the hell",
+    "summary": "Report for Inventory Request",
     "description": "inventory reporter / pdf",
     "data": [
         "report/report_inventory_request_template.xml",
+        "report/report_inventory_request_template2.xml",
         "views/report_action.xml",
+        # "views/assets.xml",
     ],
     'assets': {
         'web.report_assets_common': [

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-<!--    <report-->
-<!--            id="action_report_inventory_request"-->
-<!--            string="custom report"-->
-<!--            model="stock.picking"-->
-<!--            report_type="qweb-pdf"-->
-<!--            name="inventory_reporter.report_inventory_request_template"-->
-<!--            file="inventory_reporter.report_inventory_request_template"-->
-<!--            print_report_name="'درخواست_کالا_' + object.name"-->
-<!--    />-->
+    <!--    <report-->
+    <!--            id="action_report_inventory_request"-->
+    <!--            string="custom report"-->
+    <!--            model="stock.picking"-->
+    <!--            report_type="qweb-pdf"-->
+    <!--            name="inventory_reporter.report_inventory_request_template"-->
+    <!--            file="inventory_reporter.report_inventory_request_template"-->
+    <!--            print_report_name="'درخواست_کالا_' + object.name"-->
+    <!--    />-->
 
     <record id="action_report_inventory_request" model="ir.actions.report">
         <field name="name">custom report</field>
@@ -16,8 +16,19 @@
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">inventory_reporter.report_inventory_request_template</field>
         <field name="report_file">inventory_reporter.report_inventory_request_template</field>
-        <field name="print_report_name">'Player Performance - %s' % (object.name)</field>
+        <field name="print_report_name">'inventory - %s' % (object.name)</field>
         <field name="binding_model_id" ref="stock.model_stock_picking"/>
         <field name="binding_type">report</field>
     </record>
+    <record id="action_report_inventory_request_2" model="ir.actions.report">
+        <field name="name">custom report 2</field>
+        <field name="model">stock.picking</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">inventory_reporter.report_inventory_request_template_two</field>
+        <field name="report_file">inventory_reporter.report_inventory_request_template_two</field>
+        <field name="print_report_name">'inventory - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="stock.model_stock_picking"/>
+        <field name="binding_type">report</field>
+    </record>
+
 </odoo>
