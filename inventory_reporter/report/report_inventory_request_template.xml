@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_inventory_request_template">
+        <t t-call="web.external_layout">
+            <t t-set="doc" t-value="docs[0]"/>
+            <main>
+                <div class="page"
+                     style="font-family: Vazirmatn, sans-serif; direction: rtl; font-size: 13px; line-height: 1.8;">
+
+                    <!-- هدر اصلی -->
+                    <table style="width: 100%; margin-bottom: 20px;">
+                        <tr>
+
+                            <!-- تاریخ سند -->
+                            <td style="padding: 20px;">تاریخ سند:
+                                <br/>
+                                <span><t t-esc="doc.scheduled_date.strftime('%Y/%m/%d') if doc.scheduled_date else '-'"/></span>
+                            </td>
+
+                            <!-- عنوان -->
+                            <td style="width: 60%; text-align: center; padding: 20px">
+                                <div style="font-size: 18px; font-weight: bold;">سایپا گام</div>
+                                <div style="font-size: 15px;">برگ درخواست کالا از انبار</div>
+                            </td>
+
+                            <!-- شماره سند -->
+                            <td style="width: 20%; text-align: left; font-size: 12px; padding: 20px">
+                                شماره گزارش:
+                                <strong><t t-esc="doc.name"/></strong>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!-- اطلاعات پایه -->
+                    <table style="width: 100%; border-collapse: collapse; border: 1px solid #000; margin-bottom: 20px; padding:20px;" border="1">
+                        <tr>
+                            <td style="padding: 10px;">شماره سند:
+                                <br/>
+                                <span><t t-esc="doc.name"/></span>
+                            </td>
+                            <td style="padding: 10px;">انبار:
+                                <br/>
+                                <span><t t-esc="doc.location_id.display_name"/></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px;">درخواست‌کننده:
+                                <br/>
+                                <span><t t-esc="doc.origin or '-'"/></span>
+                            </td>
+                            <td style="padding: 10px;">مرکز هزینه مصرفی:
+                                <strong>مرکز هزینه پرس و برش</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="padding:10px;">مرکز هزینه برنامه‌ریزی:
+                                <strong>مرکز هزینه پرس و برش</strong>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!-- جدول اقلام -->
+                    <table style="width: 100%; border-collapse: collapse; font-size: 12px;" border="1">
+                        <thead style="background-color: #f0f0f0;">
+                            <tr>
+                                <th style="padding: 12px;">ردیف</th>
+
+                                <th style="padding: 12px;">شرح کالا</th>
+                                <th style="padding: 12px;">شماره فنی</th>
+                                <th style="padding: 12px;">واحد</th>
+                                <th style="padding: 12px;">مقدار</th>
+                                <th style="padding: 12px;">شماره قفسه</th>
+                                <th style="padding: 12px;">توضیحات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="doc.move_ids" t-as="line" t-index="i">
+                                <tr>
+                                    <td style="padding: 10px;"><t t-esc="(i or 0) + 1"/></td>
+                                    <td style="padding: 10px;"><t t-esc="line.product_id.name or '-'"/></td>
+                                    <td style="padding: 10px;"> idk</td>
+                                    <td style="padding: 10px;"><t t-esc="line.product_uom.name or '-'"/></td>
+                                    <td style="padding: 10px;"><t t-esc="line.product_uom_qty"/></td>
+                                    <td style="padding: 10px;"><t t-esc="line.location_id.complete_name or '-'"/></td>
+                                    <td style="padding: 10px;"><t t-esc="doc.note or '-'"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5" style="text-align: center; font-weight: bold;">جمع کل</td>
+                                <td style="padding: 10px;">
+<!--                                    <t t-esc="sum([line.quantity_done for line in doc.move_ids])"/>-->
+                                </td>
+                                <td colspan="2"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                    <!-- محل امضا -->
+                    <table style="width: 100%; margin-top: 40px; text-align: center; font-size: 12px;" border="1">
+                        <tr>
+                            <td style="padding: 20px;">امضا انباردار
+                                <br/>
+                                <span style="color: #999;">نام و نام خانوادگی</span>
+                            </td>
+                            <td style="padding: 20px;">امضا تایید کننده
+                                <br/>
+                                <span style="color: #999;">نام و نام خانوادگی</span>
+                            </td>
+                            <td style="padding: 20px;">امضا درخواست کننده
+                                <br/>
+                                <span style="color: #999;">نام و نام خانوادگی</span>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!-- یادداشت پایانی -->
+                    <div style="margin-top: 25px; text-align: left; font-size: 11px; color: #555;">
+                        توزیع نسخه: 1- تولید ; 2- بایگانی
+                    </div>
+
+                </div>
+            </main>
+        </t>
+    </template>
+</odoo>

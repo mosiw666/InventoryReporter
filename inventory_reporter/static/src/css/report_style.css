@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'VazirFD';
+    src: url('/custom_reporter/static/src/fonts/Vazirmatn-FD-Bold.ttf') format('truetype');
+}
+
+page {
+    font-family: 'VazirFD', sans-serif;
+    direction: rtl;
+    text-align: right;
+}
