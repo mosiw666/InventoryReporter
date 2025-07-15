@@ -1,7 +1,7 @@
 {
     "name": "Inventory Report",
 
-    "version": "2.0",
+    "version": "2.0.1",
 
     "depends": ["stock"],
     "author": "Mosiw, Erfan",
